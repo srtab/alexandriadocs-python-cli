@@ -1,13 +1,21 @@
+sudo: false
 language: python
 
-env:
-    matrix:
-        - TOX_ENV=py27
-        - TOX_ENV=py34
+python:
+  - "3.4"
+  - "3.5"
+  - "3.6"
+
+install:
+  - pip install --upgrade pip wheel setuptools
+  - pip install coveralls tox-travis
 
 before_script:
-    - pip install tox
+  - export PYTHONPATH=$PYTHONPATH:$(pwd)/alexandriadocs_cli
 
 script:
-    - tox -e ${TOX_ENV}
-    - rstcheck README.rst
+  - tox
+  - rstcheck README.rst
+
+after_success:
+  - coveralls

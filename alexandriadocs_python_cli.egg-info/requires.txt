@@ -1,0 +1,6 @@
+click
+
+[test]
+pytest
+pytest-cache
+pytest-cov

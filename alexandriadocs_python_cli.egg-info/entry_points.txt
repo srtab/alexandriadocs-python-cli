@@ -1,0 +1,3 @@
+[console_scripts]
+alexandriadocs = alexandriadocs_cli.cli:main
+
